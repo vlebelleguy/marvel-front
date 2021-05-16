@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Smart Sans Std";
+  src: url("SmartSansStd-Bold.eot");
+  src: url("SmartSansStd-Bold.eot?#iefix") format("embedded-opentype"),
+    url("SmartSansStd-Bold.woff2") format("woff2"),
+    url("SmartSansStd-Bold.woff") format("woff"),
+    url("SmartSansStd-Bold.ttf") format("truetype"),
+    url("SmartSansStd-Bold.svg#SmartSansStd-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
