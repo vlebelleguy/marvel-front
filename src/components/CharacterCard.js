@@ -1,5 +1,18 @@
 import { Link } from "react-router-dom";
-const CharacterCard = ({ results }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+const CharacterCard = ({ results, favCharacters, setfavCharacters }) => {
+  const addFav = (character) => {
+    let newTab = [];
+    if (favCharacters.length === 0) {
+      newTab.push(character);
+    }
+
+    newTab = [...favCharacters, character];
+    setfavCharacters(newTab);
+    console.log(favCharacters);
+  };
   return results.map((character) => {
     let picture = `${character.thumbnail.path}.${character.thumbnail.extension}`;
     return (
@@ -16,6 +29,19 @@ const CharacterCard = ({ results }) => {
               <Link to={`/comics/${character._id}`}>
                 <button className="more">MORE INFO</button>
               </Link>
+
+              <div className="fav">
+                <button
+                  className="fav-button"
+                  onClick={() => {
+                    addFav(character);
+                  }}
+                >
+                  <div className="text-btn">
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,32 +1,23 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import CharacterCard from "../components/CharacterCard";
+import ComicCard from "../components/ComicCard";
 
-import Loader from "../components/Loader";
-
-const Comics = () => {
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `https://marvel-back-vlb.herokuapp.com/favorites`
-      );
-      setData(response.data);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
-
+const Favorites = ({ favComics, favCharacters }) => {
   return (
-    <>
-      {isLoading ? (
-        <div className="coming">COMING SOON</div>
-      ) : (
-        <div className="coming">COMING SOON</div>
-      )}
-    </>
+    <div>
+      <div className="container">
+        <div className="characters">
+          <h2 className="characters-title">FAVORITES CHARACTERS</h2>
+          <section className="cards">
+            <CharacterCard results={favCharacters} />
+          </section>
+          <h2 className="characters-title">FAVORITES COMICS</h2>
+          <section className="cards">
+            <ComicCard comics={favComics} />
+          </section>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Comics;
+export default Favorites;

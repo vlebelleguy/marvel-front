@@ -13,22 +13,36 @@ import Footer from "./components/Footer";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [favComics, setfavComics] = useState([]);
+  const [favCharacters, setfavCharacters] = useState([]);
+
   return (
     <Router>
       <Header search={search} setSearch={setSearch} />
       <Banner />
       <Switch>
+        <Route path="/favorites">
+          <Favorites favComics={favComics} favCharacters={favCharacters} />
+        </Route>
         <Route path="/comics/:characterId">
           <Character />
         </Route>
         <Route path="/comics">
-          <Comics search={search} />
+          <Comics
+            search={search}
+            favComics={favComics}
+            setfavComics={setfavComics}
+          />
         </Route>
         <Route path="/favorites">
           <Favorites />
         </Route>
         <Route path="/">
-          <Home search={search} />
+          <Home
+            search={search}
+            favCharacters={favCharacters}
+            setfavCharacters={setfavCharacters}
+          />
         </Route>
       </Switch>
       <Footer />

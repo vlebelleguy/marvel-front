@@ -405,3 +405,20 @@ body {
   color: black;
   z-index: 4;
 }
+
+/********** FAVORITES **********/
+
+.fav-button {
+  background-color: transparent;
+  font-family: Smart Sans Std;
+  padding-top: 15px;
+  font-size: 15px;
+  margin: none;
+  color: white;
+  border: none;
+}
+
+.fav-button:hover {
+  color: black;
+  cursor: pointer;
+}

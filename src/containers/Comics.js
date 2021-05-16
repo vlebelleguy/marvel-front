@@ -5,7 +5,7 @@ import ComicCard from "../components/ComicCard";
 import PageNav from "../components/PageNav";
 import Loader from "../components/Loader";
 
-const Comics = ({ search }) => {
+const Comics = ({ search, favComics, setfavComics }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,7 +35,11 @@ const Comics = ({ search }) => {
                 BROWSE THROUGH THE COMICS OF MARVEL
               </h2>
               <section className="cards">
-                <ComicCard comics={data.results} />
+                <ComicCard
+                  comics={data.results}
+                  favComics={favComics}
+                  setfavComics={setfavComics}
+                />
               </section>
               <PageNav
                 count={data.count}

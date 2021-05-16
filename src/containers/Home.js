@@ -5,7 +5,7 @@ import CharacterCard from "../components/CharacterCard";
 import PageNav from "../components/PageNav";
 import Loader from "../components/Loader";
 
-const Home = ({ search }) => {
+const Home = ({ search, favCharacters, setfavCharacters }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,7 +35,11 @@ const Home = ({ search }) => {
                 BROWSE THROUGH THE CHARACTERS OF MARVEL
               </h2>
               <section className="cards">
-                <CharacterCard results={data.results} />
+                <CharacterCard
+                  results={data.results}
+                  setfavCharacters={setfavCharacters}
+                  favCharacters={favCharacters}
+                />
               </section>
               <PageNav
                 count={data.count}
